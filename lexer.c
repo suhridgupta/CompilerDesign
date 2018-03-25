@@ -89,6 +89,14 @@ void getLexFile(){
 			else
 				ungetc(c,pf);
 		}
+		else if(c == '>' || c == '<' || c == '!'){
+			lexeme[lexemeLen++] = c;
+			c = fgetc(pf);
+			if(c == '=')
+				lexeme[lexemeLen++] = c;
+			else
+				ungetc(c,pf);
+		}
 		else{
 			lexeme[lexemeLen++] = c;
 		}
