@@ -120,7 +120,7 @@ void declarations(){
 			declarations();
 		}
 	}
-	else if(isID(token) || CMP(token,"}")){
+	else if(isID() || CMP(token,"}")){
 		return;
 	}
 	else{
@@ -206,6 +206,9 @@ void statement(){
 		if(CMP(token,";")){
 			getNextToken();
 		}
+		else{
+			failure();
+		}
 	}
 	else if(CMP(token,"if")){
 		decision_stat();
@@ -240,7 +243,6 @@ void expn(){
 		eprime();
 	}
 	else{
-		printf("HERE IN EXPN\n");
 		failure();
 	}
 }
