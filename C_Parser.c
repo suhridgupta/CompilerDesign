@@ -54,6 +54,11 @@ void getNextToken(){
 	}
 	if(c == '<'){
 		c = fgetc(pf);
+		if(c == '\\'){
+			c = fgetc(pf);
+			token[token_len++] = c;
+			c = fgetc(pf);
+		}
 		while(c != '>'){
 			token[token_len++] = c;
 			c = fgetc(pf);
